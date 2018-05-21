@@ -46,3 +46,67 @@ that map to REST APIs.
 # Feature Flags:
 Global boolean values which are used to turn features on and off so that you
 can turn off bad features without releasing a new version of your application.
+
+# Automanual Testing (Example Testing)
+[Reference](https://youtu.be/MYucYon2-lk?t=200)
+* This is referring to tests that are using specific example input and specific
+example output
+
+# Noun: Hypothesis (Python library)
+* This is a property based testing on the input and output types for a
+function. I've heard multiple people state that it's the best testing library
+potentially in any language.
+
+# Noun: modsimpy.com
+
+TODO: Fill in
+
+# Pytorch
+
+TODO: Fill in
+
+# cnn
+
+TODO: Fill in
+
+# rnn
+
+TODO: Fill in
+
+# Flat Buffers
+
+TODO: Fill in
+
+# Simd
+
+TODO: Fill in
+
+# Noun: Apache Arrow
+
+TODO: Fill in
+
+# PyBind11
+
+TODO: Fill in
+
+# aiomultiprocess
+[Python Library](https://github.com/jreese/aiomultiprocess). It's the same idea
+as multiprocess but it uses Asyncio (if you're code isn't blocking) for I/O
+instead of blocking I/O.
+
+# Noun: Enforce.py
+* Library to assert python types at runtime.
+
+# Noun: Waspy
+* Transport agnostic framework whose goal is to let things like Django and
+Flask run on more than HTTP.
+
+# Noun: Skulpt.py
+
+TODO: Fill in
+
+# research operationalization
+[Wiki Link](https://en.wikipedia.org/wiki/Operationalization)
+[Talk Usage](https://youtu.be/KAPeaEJeuc8?t=876)
+The usage seems to be about how do you break down intangible concepts into
+something that can be recorded.
