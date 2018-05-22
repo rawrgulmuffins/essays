@@ -18,6 +18,15 @@ All of these talks have more detailed notes later on in this document.
 [Full Talk](https://www.youtube.com/watch?v=MYucYon2-lk&t=13s)
 * This is my favorite talk of the conference.
 
+## Alex Gaynor - Learning From Failure: Post Mortems
+[Full Talk](https://www.youtube.com/watch?v=L9Y2ap6vIMg)
+
+## Elizabeth Wickes - Hard Shouldn't be Hardship: Supporting Absolute Novices to Python
+[Full Talk](https://www.youtube.com/watch?v=KAPeaEJeuc8)
+
+## Allison Kaptur - Love your bugs
+[Full Talk](https://youtu.be/HuuYwUxM-ZY)
+
 ## Carl Meyer - Type-checked Python in the real world - PyCon 2018
 [Full Talk](https://www.youtube.com/watch?v=pMgmKJyWKn8)
 
@@ -26,14 +35,6 @@ All of these talks have more detailed notes later on in this document.
 * I think this is a great video if you're coming to Python from another
 language
 
-## Elizabeth Wickes - Hard Shouldn't be Hardship: Supporting Absolute Novices to Python
-[Full Talk](https://www.youtube.com/watch?v=KAPeaEJeuc8
-
-## Allison Kaptur - Love your bugs
-[Full Talk](https://youtu.be/HuuYwUxM-ZY)
-* I love this talk. It's not going to contain anything explicitly useful right
-now. This talk is all about changing your mindset when it comes both to bugs
-and programming in general.
 
 # Conversation Notes
 This section contains notes I took from conversations at PyCon
@@ -41,7 +42,7 @@ This section contains notes I took from conversations at PyCon
 TODO: Fill out this section after some research.
 
 # Spark References
-* "Pyspark and TensorFlow are just bindings. They're not actually python apis"
+* "Pyspark and TensorFlow are just bindings. They're not actually python APIs"
 
 ## Mezos vs Yarn vs Kubernetes
 * Multiple people said that the biggest advantage of Yarn is being able to have
@@ -153,8 +154,6 @@ billion iterations then you're not going to get a good estimate.
 [Full Talk](https://youtu.be/c-I0md_3fbQ?t=3704)
 * This talk is about using Skulpt.js and stateless python functions to do
 client side python that works both on the server and the client.
-
-### 
 
 ## Sunday Morning
 
@@ -297,6 +296,7 @@ anything about the network being used on.
 
 ## Elizabeth Wickes - Hard Shouldn't be Hardship: Supporting Absolute Novices to Python
 [Full Talk](https://www.youtube.com/watch?v=KAPeaEJeuc8
+Tags: Teaching, Learning
 As you can see from the note sizes I loved this talk.
 * "95%, actual number not made up, of my students who come to learn programming
 for librarians are humanities students."
@@ -343,3 +343,152 @@ be an awful experience.
 distracted or disinterested while waiting for students to think of questions.
 
 ## Pieter Hooimeijer - Types, Deeper Static Analysis, and you
+[Full Talk](https://youtu.be/hWV8t494N88)
+Tags: Security, Type Checking, Static Analysis
+* Presentation by the PYRE dev.
+* [Example of a security problem caught by type
+checker](https://youtu.be/hWV8t494N88?t=187)
+* [Longer blog post about real world vulnerability](https://www.grepular.com/Abusing_HTTP_Status_Codes_To_Expose_Private_Information)
+* This is a great definition of what [static analysis
+is](https://youtu.be/hWV8t494N88?t=373)
+* [Goal of a buttom up type checker](https://youtu.be/hWV8t494N88?t=802)
+* The consequences of a buttom up analyzer is that the order of the type
+checking matters and that you need a scheduler in order to complete things in
+parallel.
+* "This approach doesn't require new type annotations to work but it does
+require you to have a security engineer who can give you a list of sources and
+sinks that you're interested in."
+* [Numbers on PYRE use at Instagram](https://youtu.be/hWV8t494N88?t=1296)
+* Question: Do you find that because the buttom on analyzer needs to make a
+call stack that shows all functions calling all functions you find issues that
+aren't actually possible.
+
+Answer: Your checker should never actually do all functions to all functions.
+You should start at a main entry point and as closely follow the actual call
+graph as possible.
+
+* Question: "How do you deal with functions that deal with shared state?"
+Answer: "The talk is a lie." You need to worry about more than just input and
+output. We use things called 'access paths' that check the total state space,
+input, and output while looking at how the input modifies the state space. For
+security issues just looking for sinks and sources is enough of an improvement
+over grep that it's worth using.
+* Question: Have you published your scheduler?
+Answer: No
+* Question: Are there similarities to taint analysis and profiling? Can you do
+both in one pass?
+Answer: Both profiling and taint analysis are very hard domains and we have
+tried to do both at the same time. Having tried it we don't recommend that
+anyone else tries to. You should use different tools for each problem.
+
+## Nathaniel J. Smith - Trio: Async concurrency for mere mortals
+[Full Talk](https://www.youtube.com/watch?v=oLkfnc_UMcE)
+tags: Concurrency, Asycio, Intro
+
+## Alex Gaynor - Learning From Failure: Post Mortems 
+[Full Talk](https://www.youtube.com/watch?v=L9Y2ap6vIMg)
+tags: Software Engineering, Post Mortems, Best Practices, Management
+* This talk is about how to learn from operational failures. "If it's something
+you would measure with an SLA it's an operational failure."
+* ["If you leave here having learned absolutely nothing else I want you to walk
+away believing that 'holding people accountable' (aka firing them) and making
+systemic improvements are unrelated problems and maybe even mutually
+exclusive"](https://youtu.be/L9Y2ap6vIMg?t=206)
+* The goal should be blameless post-mortems.
+[Example](https://youtu.be/L9Y2ap6vIMg?t=272)
+* "Using passive voice subtly conveys 'we blame someone if we know who it was.
+We're keeping this information secret because deep down we want someone to
+blame."
+* [How Complex Systems fail](https://how.complexsystems.fail)
+* [What does a Post-mortem look like](https://youtu.be/L9Y2ap6vIMg?t=511)
+* [Post Mortem Markdown Template](https://youtu.be/L9Y2ap6vIMg?t=620)
+* Incidence reports should contain as much objective information as possible.
+The analysis should be the portion that contains subjective information.
+* Examples of subject information are "What of the possible solutions to this
+incident which ones are the most important to do first."
+* "If you dig down into 'computers were a mistake' you are probably going too
+far"
+* It's always important to include the portions of your process that worked
+correctly (like your deployment process).
+* It's important to change your language form "root cause" to "root causes."
+* Table top exercises; Interesting to simulate an issue to work on process
+improvements. Not always useful for finding underlying bugs.
+* It's totally ok to redefine what an incident is.
+### Non-Software Examples
+* NTSB (National Transportation Safety Board). Accident investigations vs
+criminal investigations. You want your post-mortems to mimic the NTSB rather
+than an insurance company whose primary goal is to assign blame.
+* The NTSB uses what it calls "The Party System" to improve transportation
+safety.
+### Misc Information
+* Even if you don't know why a incident happened you should still do a
+post-mortem.
+* "Human error" should almost never be used as a reason. This claim better mean
+"It's too rare and it's too costly to fix the other systemic issues here."
+* "If you don't fix classes of bugs at the root then you will end up generating
+more classes of bugs faster than you can fix them. As time advances, your
+product will become more and more unreliable as more systemic errors are
+added."
+* "Fixing bugs systemically is cheaper than fixing them one at a time."
+
+### Q&A
+* Question: How do you transition a culture from a blameful culture to a
+blameless culture?
+Answer: It is my belief that only really leadership can start this transition
+and if a culture is already in a blameful mode that might not be enough.
+
+* Question: Is it helpful to have executive representation in a post-mortem?
+Answer: It can be helpful but it's more important to have people directly
+involved with fixing the issues.
+
+## Stacy Morse - Code Reviews Using Art Critique Principles
+[Full Talk](https://www.youtube.com/watch?v=lpWvYxEW09k)
+tags: Code Review, Management, Software Engineering,
+### Art Critiques Methodology
+* [Rules for critique](https://youtu.be/lpWvYxEW09k?t=491)
+* Code reviews are about the code and not the person.
+* Code reviews should be ready to be reviewed. WIPs aren't useful.
+* You must stay neutral.
+* Constructive criticism only. Defined later.
+* Stay on topic. If you want to design something different or gripe about a
+different commit / module take it somewhere else.
+* Mandatory participation. You must be reviewed and be reviewed.
+* Thumbs up is not a code review. There's no proof that the code was reviewed.
+There's no responsibility sharing.
+
+### Pre Code Review
+[Section](https://youtu.be/lpWvYxEW09k?t=737)
+* run ALL of your tests.
+* Check all requirements.
+* Identify your work.
+
+### Code Critique Stages
+[section](https://youtu.be/lpWvYxEW09k?t=815)
+* Description
+    * identify, Inventory, Neutral. Just read the code.
+    * It's hard to describe what the inventory is. My interpretation is
+    comments on a PR that show that you've read the code.
+* Analysis
+    * new code + old code
+    * facts needed for critical interpretation.
+* Interpretation
+    * Taking the two previous stages and putting them together.
+    * It's your responsibility to do this without blame.
+* Judgement
+    * Can the code ship?
+
+### Constructive Criticism
+[Definition](https://youtu.be/lpWvYxEW09k?t=1353)
+
+### Q&A
+Question: How do you evaluate sunk costs when giving someone a code review.
+Answer: If the change would substantially improve the code you should make the
+change. That's an organization question, however.
+
+Question: Is it worthwhile to implement a code of conduct for code review?
+Answer: I have implemented them before but it's hard to use a template for
+code review.
+
+Question: Can you give us a specific example of an art critique?
+Answer: The presentor did a open space with a specific example that was
+unrecorded.

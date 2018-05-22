@@ -110,3 +110,43 @@ TODO: Fill in
 [Talk Usage](https://youtu.be/KAPeaEJeuc8?t=876)
 The usage seems to be about how do you break down intangible concepts into
 something that can be recorded.
+
+# Static Analysis
+[Given Definition](https://youtu.be/hWV8t494N88?t=349)
+* Formal verification is a given example of "Slow, hard to use, complex,
+complete."
+* Grep is another example of a static analysis tool that's "Quick and easy but
+very incomplete."
+* Pylint and Flake8 are "still easy but still very little work. Still largely
+incomplete."
+* Type Checks "require more work [annotations] but give you more completeness
+while not requiring the work for formal verification."
+
+# Call Graph
+[Thought this was an interesting definition for what a call graph
+is](https://youtu.be/hWV8t494N88?t=915)
+
+# Taint Analysis
+[Definition](https://youtu.be/hWV8t494N88?t=1005)
+
+# Source and Sink
+* Used during the `Types, Deeper Static Analysis, and you` talk. The
+canonical use for sink seems to be a dangerous function that leaks data to
+users accidentally. Source seems to be user input that is used to cause a sink
+to leak data.
+
+# Operational Failure (bug)
+[Reference](https://youtu.be/L9Y2ap6vIMg?t=60)
+* "If it's something you can measure with an SLA it's an operational failure."
+
+# Systemic Failure 
+[Definition](https://youtu.be/L9Y2ap6vIMg?t=360)
+
+# Richard Cook
+Researcher that looks at how complex systems fail.
+
+# Table Top Exercise
+[Example Usage](https://youtu.be/L9Y2ap6vIMg?t=1130)
+
+# Art Critiques
+[Given Definition](https://youtu.be/lpWvYxEW09k?t=116)
