@@ -8,9 +8,6 @@ exploration is in the [concepts.md page.](No Link Yet)
 # All Talks
 https://www.youtube.com/channel/UCsX05-2sVSH7Nx3zuk3NYuQ/videos?flow=grid&sort=p&view=0
 
-# All Posters
-https://www.flickr.com/photos/129877449@N07/sets/72157693710700302/
-
 # Most Useful Talks
 All of these talks have more detailed notes later on in this document.
 
@@ -35,6 +32,8 @@ All of these talks have more detailed notes later on in this document.
 * I think this is a great video if you're coming to Python from another
 language
 
+## Kyle Knapp - Automating Code Quality
+[Full Talk](https://www.youtube.com/watch?v=G1lDk_WKXvY)
 
 # Conversation Notes
 This section contains notes I took from conversations at PyCon
@@ -492,3 +491,49 @@ code review.
 Question: Can you give us a specific example of an art critique?
 Answer: The presentor did a open space with a specific example that was
 unrecorded.
+
+## Dmitry Filippov, Ewa Jodlowska - By the Numbers: Python Community Trends in 2017/2018
+[Full Talk](https://www.youtube.com/watch?v=xEE4X-9RROM)
+* This is an interesting talk but I don't know if there's anything really
+actionable from it. I do think [this
+section](https://youtu.be/xEE4X-9RROM?t=680) on there being more data scientist
+than web developers is interesting.
+* (75% python3 adoption](https://youtu.be/xEE4X-9RROM?t=934)
+
+## Esther Nam - One weird trick to becoming a better software developer
+[Full Talk](https://www.youtube.com/watch?v=IYWlfVqBQLc)
+* This is an interesting talk that tries to give you specific exercises to work
+on the kinds of cognitive empathy required to be a better developer.
+
+
+## Kyle Knapp - Automating Code Quality
+[Full Talk](https://www.youtube.com/watch?v=G1lDk_WKXvY)
+
+## Matt Davis - Python Performance Investigation by Example
+[Full Talk](https://youtu.be/yrRqNzJTBjk)
+* Collect data, analyze, experiment, goto Collect
+* cprofile, line_profiler, pyflame, plop, nylas-perftools. The last three are
+made to be profilers with low overhead that run in produce instances.
+* `python -m cProfile -o output_file my_script.py`
+* In a Jypter notebook `%%prun -q -D output_file`
+
+### Viewing data
+[pstats example](https://youtu.be/yrRqNzJTBjk?t=685)
+* `pstats.Stats('profile.cprof')`
+* [snakeviz example](https://youtu.be/yrRqNzJTBjk?t=773)
+* ["Going with math instead of state tracking got us a factor of 100 
+improvement in speed"](https://youtu.be/yrRqNzJTBjk?t=1134)
+
+## Irina Truong - Adapting from Spark to Dask: what to expect
+[Full Talk](https://www.youtube.com/watch?v=X4YHGKj3V5M)
+* [What is Spark](https://youtu.be/X4YHGKj3V5M?t=159)
+* [What is Dask](https://youtu.be/X4YHGKj3V5M?t=187)
+* [Performance Benchmark](https://youtu.be/X4YHGKj3V5M?t=873)
+* [Example of Dask visual feedback](https://youtu.be/X4YHGKj3V5M?t=1224)
+* [Dask drawbacks](https://youtu.be/X4YHGKj3V5M?t=1310)
+
+# All Posters
+https://www.flickr.com/photos/129877449@N07/sets/72157693710700302/
+
+## Reproducible Environments for Machine learning using Docker Layers
+https://www.flickr.com/photos/129877449@N07/42128542031/in/album-72157693710700302/
